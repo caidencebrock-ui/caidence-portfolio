@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caidence Brock | Technical Communicator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav>
+        <div class="container">
+            <a href="#hero" class="logo">Caidence Brock</a>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header id="hero" class="hero-section">
+        <div class="container">
+            <h1>Caidence Brock</h1>
+            <h2>Technical Communicator & Medical Imaging Student</h2>
+            <p class="tagline">A detail-driven medical imaging student with a talent for translating complex scientific, medical, and technical information into clear, accessible communication. Skilled in usability analysis, instructional design, and research-driven writing — committed to creating work that helps people learn, understand, and make informed decisions.</p>
+            <a href="#projects" class="cta-button">View My Work</a>
+        </div>
+    </header>
+
+    <section id="about" class="about-section">
+        <div class="container">
+            <h3>Who I Am</h3>
+            <p>My unique background combines the **precision of medical science** with the **clarity of technical communication**. I specialize in taking dense, complicated subjects—whether clinical research, usability data, or complex instructions—and distilling them into audience-appropriate content that is easy to digest and act upon.</p>
+            <p>My work reflects a strong foundation in **audience analysis**, **information design**, and **evidence-based reporting**, ensuring that every document is not just informative, but fundamentally useful.</p>
+        </div>
+    </section>
+
+    <section id="projects" class="projects-section">
+        <div class="container">
+            <h3>Featured Projects</h3>
+            <div class="project-grid">
+
+                <div class="project-card">
+                    <h4>FDA Website Usability Report</h4>
+                    <p class="role-tag">Usability / UX Analysis</p>
+                    <p>A detailed analysis of the FDA website’s effectiveness for everyday users. Evaluates layout clarity, accessibility, efficiency, and problem areas while offering evidence-based improvements.</p>
+                    <div class="tech-stack">
+                        <span>Usability Testing</span>
+                        <span>UX Analysis</span>
+                        <span>Technical Reporting</span>
+                        <span>Data Visualization</span>
+                    </div>
+                    <a href="[PDF link placeholder]" target="_blank" class="project-link">View Report »</a>
+                </div>
+
+                <div class="project-card">
+                    <h4>Weight Loss Drugs White Paper</h4>
+                    <p class="role-tag">Scientific Communication / Research</p>
+                    <p>A scientific white paper exploring GLP-1 medications (Ozempic/Wegovy), explaining their medical development, their social media explosion, and their broader societal/healthcare implications.</p>
+                    <div class="tech-stack">
+                        <span>Scientific Communication</span>
+                        <span>Research Synthesis</span>
+                        <span>Technical Writing</span>
+                        <span>Data Analysis</span>
+                    </div>
+                    <a href="[PDF link placeholder]" target="_blank" class="project-link">View Paper »</a>
+                </div>
+
+                <div class="project-card">
+                    <h4>High School Softball Practice Instructions</h4>
+                    <p class="role-tag">Instructional Design / Technical Editing</p>
+                    <p>A complete revision of softball practice instructions for high school coaches, focused on clarity, safety, organization, and real-world usability.</p>
+                    <div class="tech-stack">
+                        <span>Instructional Design</span>
+                        <span>Technical Editing</span>
+                        <span>Audience Analysis</span>
+                        <span>Sports Coaching</span>
+                    </div>
+                    <a href="[PDF link placeholder]" target="_blank" class="project-link">View Instructions »</a>
+                </div>
+
+                </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h3>Get In Touch</h3>
+            <p>I'm available for technical writing, documentation, and medical communication roles. Connect with me directly!</p>
+            <p class="contact-info">
+                Email: <a href="mailto:caidencebrock38@gmail.com">caidencebrock38@gmail.com</a>
+            </p>
+            <p class="contact-info">
+                Indeed Profile: <a href="https://profile.indeed.com/p/caidenceb-0r67lsk" target="_blank">Indeed.com/CaidenceBrock</a>
+            </p>
+            <a href="mailto:caidencebrock38@gmail.com" class="cta-button primary-btn">Send an Email</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Caidence Brock. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
