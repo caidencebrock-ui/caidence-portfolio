@@ -1,30 +1,17 @@
-/* =========================================
+/* ========================
    1. VARIABLES & RESET
-   ========================================= */
-   :root {
-    /* Color Palette */
-    --color-white: #ffffff;
-    --color-off-white: #fcfcfc;
+   ======================== */
+:root {
+    --bg-color: #f8f0f2;
+    --glass-bg: rgba(255, 255, 255, 0.65);
+    --glass-border: rgba(255, 255, 255, 0.8);
+    --blur-strength: 15px;
     
-    /* THEME: Refined Pink */
-    /* A very pale pink for backgrounds (warm and inviting) */
-    --color-light-pink: #fdf2f5; 
-    
-    /* Primary Accent: A vibrant, professional rose pink */
-    --color-accent-pink: #d81b60; 
-    
-    /* Text/Contrast: Deep Maroon/Burgundy (Replaces black for a softer look) */
-    --color-deep-maroon: #880e4f; 
-    
-    /* Standard Text: Dark Slate Gray (easier on eyes than pure black) */
-    --color-text-main: #2c3e50;
-    --color-text-muted: #607d8b;
-
-    /* Spacing & Shadows */
-    --shadow-subtle: 0 4px 6px rgba(136, 14, 79, 0.05);
-    --shadow-hover: 0 10px 25px rgba(136, 14, 79, 0.15);
-    --border-radius: 8px;
-    --nav-height: 80px;
+    /* The Pink Palette */
+    --accent-pink: #d81b60; 
+    --soft-pink: #fce4ec;
+    --text-dark: #2d1b25;
+    --text-light: #6a5a60;
 }
 
 * {
@@ -33,391 +20,339 @@
     padding: 0;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
 body {
-    font-family: 'Montserrat', sans-serif;
-    line-height: 1.7;
-    color: var(--color-text-main);
-    background-color: var(--color-white);
-    font-size: 16px;
+    font-family: 'Lato', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-dark);
+    line-height: 1.6;
+    overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
-/* Typography Defaults */
-h1, h2, h3, h4 {
-    font-family: 'Lora', serif;
-    font-weight: 700;
-    line-height: 1.2;
-    color: var(--color-deep-maroon);
+/* ========================
+   2. BACKGROUND FX
+   ======================== */
+/* This creates the floating pink glow in the background */
+.background-blob {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(80px);
+    z-index: -1;
+    opacity: 0.6;
+    animation: float 10s infinite alternate;
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
-    transition: all 0.3s ease;
+.blob-1 {
+    top: -10%;
+    left: -10%;
+    width: 50vw;
+    height: 50vw;
+    background: #f8bbd0;
 }
 
-.container {
-    max-width: 1100px;
+.blob-2 {
+    bottom: -10%;
+    right: -10%;
+    width: 60vw;
+    height: 60vw;
+    background: #e1bee7; /* Slight purple tint for depth */
+}
+
+@keyframes float {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(30px, 50px); }
+}
+
+/* ========================
+   3. LAYOUT GRID
+   ======================== */
+.main-wrapper {
+    display: grid;
+    grid-template-columns: 380px 1fr; /* Sidebar is 380px, Content fills rest */
+    gap: 40px;
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 0 25px;
+    padding: 40px;
+    min-height: 100vh;
 }
 
-/* =========================================
-   2. NAVIGATION
-   ========================================= */
-nav {
-    background-color: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px); /* Glass effect */
-    height: var(--nav-height);
-    display: flex;
-    align-items: center;
+/* ========================
+   4. GLASSMORPHISM BASE
+   ======================== */
+.glass-panel {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--blur-strength));
+    -webkit-backdrop-filter: blur(var(--blur-strength)); /* Safari support */
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+}
+
+/* ========================
+   5. SIDEBAR (Fixed)
+   ======================== */
+.sidebar {
     position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: var(--shadow-subtle);
-    border-bottom: 1px solid rgba(216, 27, 96, 0.1);
+    top: 40px;
+    height: calc(100vh - 80px); /* Full height minus padding */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
 }
 
-nav .container {
+.profile-placeholder {
+    width: 120px;
+    height: 120px;
+    background: var(--accent-pink);
+    color: white;
+    border-radius: 50%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    width: 100%;
+    justify-content: center;
+    font-size: 2rem;
+    font-family: 'Playfair Display', serif;
+    margin: 0 auto 25px;
+    border: 5px solid rgba(255,255,255,0.5);
 }
 
-.logo {
-    font-family: 'Lora', serif;
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--color-deep-maroon);
-    letter-spacing: -0.5px;
+/* Use this if you add an image */
+.profile-img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
 }
 
-.logo .dot {
-    color: var(--color-accent-pink);
+.sidebar h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    line-height: 1;
+    margin-bottom: 10px;
+    color: var(--accent-pink);
 }
 
-nav ul {
+.role-title {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text-light);
+    margin-bottom: 20px;
+}
+
+.bio-text {
+    font-size: 1rem;
+    color: var(--text-dark);
+    margin-bottom: 40px;
+    padding: 0 10px;
+}
+
+.sidebar nav ul {
     list-style: none;
+    margin-bottom: 40px;
+}
+
+.sidebar nav li {
+    margin-bottom: 12px;
+}
+
+.sidebar nav a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+}
+
+.sidebar nav a:hover {
+    color: var(--accent-pink);
+}
+
+.btn-primary {
+    display: inline-block;
+    background: var(--text-dark);
+    color: white;
+    padding: 12px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s;
+}
+
+.btn-primary:hover {
+    background: var(--accent-pink);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(216, 27, 96, 0.3);
+}
+
+/* ========================
+   6. MAIN CONTENT
+   ======================== */
+.content-area {
     display: flex;
+    flex-direction: column;
     gap: 30px;
 }
 
-nav ul li a {
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: var(--color-text-main);
-    position: relative;
+h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: var(--text-dark);
 }
 
-nav ul li a:hover {
-    color: var(--color-accent-pink);
-}
-
-/* =========================================
-   3. HERO SECTION
-   ========================================= */
-.hero-section {
-    background: linear-gradient(135deg, var(--color-off-white) 0%, var(--color-light-pink) 100%);
-    padding: 120px 0 100px;
-    text-align: center;
-}
-
-.hero-content {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.hero-section h1 {
-    font-size: 4rem;
-    margin-bottom: 10px;
-    letter-spacing: -1px;
-}
-
-.hero-section h2 {
-    font-size: 1.5rem;
-    font-weight: 400;
-    color: var(--color-accent-pink); /* Highlight the job title */
-    margin-bottom: 25px;
-    font-family: 'Montserrat', sans-serif;
+.section-label {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 2px;
+    color: var(--text-light);
+    margin-bottom: 15px;
+    margin-left: 10px; /* Indent slightly */
+    display: block;
 }
 
-.hero-section .divider {
-    height: 4px;
-    width: 60px;
-    background-color: var(--color-deep-maroon);
-    margin: 0 auto 30px;
-    border-radius: 2px;
+.intro-card p {
+    font-size: 1.25rem; /* Larger font for intro */
+    font-weight: 300;
 }
 
-.hero-section .tagline {
-    font-size: 1.2rem;
-    color: var(--color-text-main);
-    margin-bottom: 40px;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
+/* Project Cards */
+.project-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 5px solid var(--accent-pink); /* Modern accent line */
 }
 
-/* =========================================
-   4. BUTTONS
-   ========================================= */
-.cta-button {
+.project-card:hover {
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    background: rgba(255, 255, 255, 0.85); /* Whiter on hover */
+}
+
+.tag {
     display: inline-block;
-    background-color: var(--color-accent-pink);
-    color: var(--color-white);
-    padding: 16px 36px;
-    border-radius: 50px; /* Pill shape is more modern */
-    font-weight: 700;
-    font-size: 0.95rem;
+    font-size: 0.75rem;
     text-transform: uppercase;
+    color: var(--accent-pink);
+    font-weight: 700;
+    margin-bottom: 10px;
     letter-spacing: 1px;
-    box-shadow: 0 4px 15px rgba(216, 27, 96, 0.3);
 }
 
-.cta-button:hover {
-    background-color: var(--color-deep-maroon);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(136, 14, 79, 0.2);
+.project-card h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    margin-bottom: 10px;
 }
 
-/* =========================================
-   5. GENERAL SECTIONS
-   ========================================= */
-section {
-    padding: 100px 0;
-    scroll-margin-top: var(--nav-height); /* Prevents nav from covering title */
-}
-
-.section-header {
-    text-align: center;
-    margin-bottom: 60px;
-}
-
-.section-header h3 {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-}
-
-.section-header .underline {
-    height: 3px;
-    width: 80px;
-    background-color: var(--color-accent-pink);
-    margin: 0 auto;
-}
-
-.section-subtext {
-    color: var(--color-text-muted);
-    font-size: 1.1rem;
-    margin-bottom: 15px;
-}
-
-/* =========================================
-   6. ABOUT SECTION
-   ========================================= */
-.about-section {
-    background-color: var(--color-white);
-}
-
-.about-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr; /* Text takes up 2/3, Skills 1/3 */
-    gap: 50px;
-    align-items: start;
-}
-
-.about-text p {
+.project-card p {
     margin-bottom: 20px;
-    font-size: 1.1rem;
-    color: var(--color-text-main);
+    color: var(--text-light);
 }
 
-.skills-sidebar h4 {
-    font-size: 1.2rem;
+.project-meta {
     margin-bottom: 20px;
-    border-bottom: 2px solid var(--color-light-pink);
-    padding-bottom: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.project-meta span {
+    background: var(--soft-pink);
+    color: var(--accent-pink);
+    padding: 5px 12px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.link-arrow {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 700;
+    border-bottom: 1px solid var(--text-dark);
+    padding-bottom: 2px;
+    transition: color 0.3s;
+}
+
+.link-arrow span {
     display: inline-block;
+    transition: transform 0.3s;
 }
 
-.key-skills {
+.link-arrow:hover {
+    color: var(--accent-pink);
+    border-color: var(--accent-pink);
+}
+
+.link-arrow:hover span {
+    transform: translate(3px, -3px);
+}
+
+/* Skills Grid */
+.skills-grid {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
 }
 
-.key-skills span {
-    background-color: var(--color-light-pink);
-    color: var(--color-deep-maroon);
-    padding: 8px 16px;
-    border-radius: 6px;
-    font-size: 0.85rem;
+.skill-item {
+    background: white;
+    padding: 10px 20px;
+    border-radius: 50px;
     font-weight: 600;
-    border: 1px solid rgba(216, 27, 96, 0.1);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    border: 1px solid rgba(0,0,0,0.05);
 }
 
-/* =========================================
-   7. PROJECTS SECTION
-   ========================================= */
-.projects-section {
-    background-color: var(--color-light-pink); /* Subtle pink background */
-}
-
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 30px;
-}
-
-.project-card {
-    background: var(--color-white);
-    padding: 40px;
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow-subtle);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border-top: 5px solid var(--color-accent-pink);
+/* Contact Links */
+.contact-links {
+    margin-top: 30px;
     display: flex;
     flex-direction: column;
+    gap: 15px;
 }
 
-.project-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-hover);
-}
-
-.card-header {
-    margin-bottom: 15px;
-}
-
-.project-card h4 {
-    font-size: 1.5rem;
-    margin-bottom: 5px;
-}
-
-.project-card .role-tag {
-    display: inline-block;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.8rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: var(--color-accent-pink);
-    letter-spacing: 0.5px;
-}
-
-.project-card p {
-    font-size: 1rem;
-    color: var(--color-text-muted);
-    margin-bottom: 25px;
-    flex-grow: 1; /* Pushes content down so buttons align */
-}
-
-.tech-stack {
-    margin-bottom: 25px;
+.contact-row {
     display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
+    justify-content: space-between;
+    padding: 15px;
+    background: white;
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--text-dark);
+    transition: transform 0.2s;
 }
 
-.tech-stack span {
-    font-size: 0.75rem;
-    background-color: #f0f2f5;
-    color: var(--color-text-main);
-    padding: 4px 10px;
-    border-radius: 4px;
-    font-weight: 600;
+.contact-row:hover {
+    transform: scale(1.02);
+    color: var(--accent-pink);
 }
 
-.project-link {
-    font-weight: 700;
-    color: var(--color-deep-maroon);
-    font-size: 0.95rem;
-    display: inline-flex;
-    align-items: center;
-}
+.contact-row .label { font-weight: 700; }
 
-.project-link:hover {
-    color: var(--color-accent-pink);
-    padding-left: 5px; /* Subtle movement on hover */
-}
-
-/* =========================================
-   8. CONTACT SECTION
-   ========================================= */
-.contact-section {
-    background-color: var(--color-white);
-    text-align: center;
-}
-
-.contact-pitch {
-    font-size: 1.2rem;
-    max-width: 600px;
-    margin: 0 auto 40px;
-}
-
-.contact-box {
-    display: flex;
-    justify-content: center;
-    gap: 50px;
-    margin-bottom: 50px;
-}
-
-.contact-item {
-    display: flex;
-    flex-direction: column;
-}
-
-.contact-item strong {
-    color: var(--color-deep-maroon);
-    font-family: 'Lora', serif;
-    font-size: 1.1rem;
-    margin-bottom: 5px;
-}
-
-.contact-item a {
-    color: var(--color-text-muted);
-    border-bottom: 1px solid transparent;
-}
-
-.contact-item a:hover {
-    color: var(--color-accent-pink);
-    border-bottom: 1px solid var(--color-accent-pink);
-}
-
-/* =========================================
-   9. FOOTER
-   ========================================= */
 footer {
-    background-color: var(--color-deep-maroon);
-    color: var(--color-white);
-    padding: 40px 0;
     text-align: center;
-    font-size: 0.9rem;
-    opacity: 0.95;
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin-top: 20px;
 }
 
-/* =========================================
-   10. RESPONSIVE DESIGN
-   ========================================= */
-@media (max-width: 768px) {
-    .hero-section h1 { font-size: 3rem; }
-    
-    .about-grid {
-        grid-template-columns: 1fr; /* Stack about section */
-        gap: 30px;
-    }
-    
-    .contact-box {
-        flex-direction: column;
-        gap: 30px;
+/* ========================
+   7. MOBILE RESPONSIVE
+   ======================== */
+@media (max-width: 900px) {
+    .main-wrapper {
+        grid-template-columns: 1fr; /* Stack sidebar and content */
+        padding: 20px;
+        gap: 20px;
     }
 
-    nav .container {
-        flex-direction: column;
-        gap: 15px;
+    .sidebar {
+        position: relative;
+        height: auto;
+        top: 0;
+        padding: 40px 20px;
     }
+    
+    .blob-1 { width: 80vw; height: 80vw; }
 }
