@@ -3,121 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Caidence Brock | Diagnostic Imaging Portfolio</title>
+    <title>Caidence Brock | Command: View Profile</title>
     <link rel="stylesheet" href="styles.css">
     
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <nav class="scan-nav">
+    <nav class="command-nav">
         <div class="container">
-            <a href="#hero" class="logo">CB<span class="dot">.</span> Diagnostics</a>
+            <span class="prompt">$ view caidence_brock.profile</span>
             <ul class="nav-links">
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Data Log</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#projects">/projects</a></li>
+                <li><a href="#skills">/skills_log</a></li>
+                <li><a href="#contact">/transmit</a></li>
             </ul>
         </div>
     </nav>
 
-    <header id="hero" class="hero-section">
+    <header id="hero" class="code-output-header">
         <div class="container">
-            <h1>Caidence Brock</h1>
-            <h2>Precision Imaging & Technical Communication</h2>
-            <div class="scanline-divider"></div>
-            <p class="tagline">
-                Translating complex data into clear, accurate, and actionable reports. My focus: clarity where it matters most.
-            </p>
-            <a href="#projects" class="cta-button primary-cta">Begin Scan</a>
+            <h1>> Caidence Brock // Medical Imaging Specialist</h1>
+            <p class="sub-output">// Role: Technical Communicator (Healthcare Sector)</p>
+            <div class="cursor blink">_</div>
+            <a href="#projects" class="code-link">initiate_scan() &rarr;</a>
         </div>
     </header>
 
-    <section id="projects" class="content-section projects-section">
-        <div class="container">
-            <h3 class="section-title">Case Files // Technical Reports</h3>
-            
-            <div class="project-grid">
+    <main class="content-wrapper container">
 
-                <article class="data-module">
-                    <span class="module-tag">USABILITY PROTOCOL</span>
-                    <h4>FDA Website Report</h4>
-                    <p>Conducted a critical usability analysis of the FDA website, identifying key architectural flaws that impede public health literacy and proposing immediate structural improvements.</p>
-                    <div class="tech-log">
-                        <span>UX Analysis</span>
-                        <span>Information Architecture</span>
-                    </div>
-                    <a href="https://drive.google.com/file/d/13cZyH3rYjwrn-sXPNK_0jK5kQUY13PQY/view?usp=sharing" target="_blank" class="module-link">View File Access &rarr;</a>
-                </article>
-
-                <article class="data-module">
-                    <span class="module-tag">CLINICAL DATA SYNTHESIS</span>
-                    <h4>Weight Loss Drug Paper</h4>
-                    <p>Synthesized current clinical trial data and ethical considerations surrounding GLP-1 agonists, clarifying complex pharmacology for a general audience against prevailing media narratives.</p>
-                    <div class="tech-log">
-                        <span>Research Synthesis</span>
-                        <span>Clinical Reporting</span>
-                    </div>
-                    <a href="https://drive.google.com/file/d/1PdBIypr72ZLdNZ68M-9MHY9mV-fpnZWy/view?usp=sharing" target="_blank" class="module-link">View File Access &rarr;</a>
-                </article>
-
-                <article class="data-module">
-                    <span class="module-tag">INSTRUCTIONAL DESIGN</span>
-                    <h4>Softball Practice Guide (SOP)</h4>
-                    <p>Developed a concise, safety-focused Standard Operating Procedure (SOP) guide, transforming disparate coaching instructions into a clear, efficient, and standardized protocol.</p>
-                    <div class="tech-log">
-                        <span>SOP Creation</span>
-                        <span>Workflow Optimization</span>
-                    </div>
-                    <a href="https://drive.google.com/file/d/1ul_YiNacQxs8X2vby7iBsQiN36mfx6gn/view?usp=sharing" target="_blank" class="module-link">View File Access &rarr;</a>
-                </article>
-
+        <section id="overview" class="code-block">
+            <h3 class="block-title">Summary { data_output: true }</h3>
+            <div class="code-line">
+                <span class="keyword">const</span> bio = {
+                <span class="prop">field</span>: <span class="string">'Medical_Imaging'</span>,
+                <span class="prop">focus</span>: <span class="string">'Translational_Clarity'</span>,
+                <span class="prop">mission</span>: <span class="string">'Ensure_Accuracy_In_Patient_Data_Flow'</span>
+                }
             </div>
-        </div>
-    </section>
-
-    <section id="skills" class="content-section skills-section">
-        <div class="container">
-            <h3 class="section-title">Data Log // Core Competencies</h3>
-            
-            <div class="skills-wrapper">
-                <div class="skill-group">
-                    <p><strong>Primary Skillset</strong></p>
-                    <div class="skill-tag">Medical Imaging Protocols</div>
-                    <div class="skill-tag">Technical Scientific Reporting</div>
-                    <div class="skill-tag">Critical Research Analysis</div>
-                </div>
-                
-                <div class="skill-group">
-                    <p><strong>Communication Focus</strong></p>
-                    <div class="skill-tag">Patient Education</div>
-                    <div class="skill-tag">Standard Operating Procedures (SOPs)</div>
-                    <div class="skill-tag">Cross-Disciplinary Team Reports</div>
-                </div>
-            </div>
-            
-        </div>
-    </section>
-    
-    <section id="contact" class="content-section contact-section">
-        <div class="container">
-            <h3 class="section-title">Transmission // Connect</h3>
-            <p class="contact-pitch">Ready to discuss opportunities where precision and communication align.</p>
-            <a href="mailto:cbrock2@ycp.edu" class="cta-button secondary-cta">Initiate Transmission (Email)</a>
-            <p class="small-link">
-                <a href="https://profile.indeed.com/p/caidenceb-0r67lsk" target="_blank">View Professional Profile on Indeed</a>
+            <p class="description">
+                My work centers on the intersection of technical proficiency (Medical Imaging) and documentation rigor (Technical Communication). The goal is to translate complex diagnostic information into **precise, unambiguous, and accessible documentation** for all stakeholders, reducing error potential in critical healthcare settings.
             </p>
-        </div>
-    </section>
+        </section>
+
+        <section id="projects" class="code-block">
+            <h3 class="block-title">Projects [ array_length: 3 ]</h3>
+            
+            <div class="project-list">
+            
+                <article class="data-record">
+                    <span class="tag success">// Status: USABILITY_COMPLETE</span>
+                    <h4>function: FDA_Report(data)</h4>
+                    <p>Analyzed critical usability failures on FDA.gov; proposed information architecture restructure to enhance health literacy for the public. Focus on UX and regulatory documentation.</p>
+                    <div class="tech-tags">
+                        <span>UX/Heuristics</span>
+                        <span>Info_Arch</span>
+                    </div>
+                    <a href="..." target="_blank" class="code-link">view_source(PDF) &rarr;</a>
+                </article>
+
+                <article class="data-record">
+                    <span class="tag success">// Status: RESEARCH_SYNTHESIZED</span>
+                    <h4>function: GLP1_Analysis(data)</h4>
+                    <p>In-depth synthesis of clinical trial data vs. media narratives concerning weight-loss drugs. Emphasized clear scientific reporting and ethical considerations for patient care.</p>
+                    <div class="tech-tags">
+                        <span>Clinical_Data</span>
+                        <span>Ethics_Reporting</span>
+                    </div>
+                    <a href="..." target="_blank" class="code-link">view_source(PDF) &rarr;</a>
+                </article>
+
+                <article class="data-record">
+                    <span class="tag success">// Status: SOP_OPTIMIZED</span>
+                    <h4>function: Softball_SOP(data)</h4>
+                    <p>Redesigned chaotic coaching notes into a linear, safety-compliant Standard Operating Procedure (SOP) manual for quick and accurate in-field reference.</p>
+                    <div class="tech-tags">
+                        <span>Instructional_Design</span>
+                        <span>Workflow_SOP</span>
+                    </div>
+                    <a href="..." target="_blank" class="code-link">view_source(PDF) &rarr;</a>
+                </article>
+
+            </div>
+        </section>
+
+        <section id="skills" class="code-block">
+            <h3 class="block-title">Skills_Log [ data_integrity: 100% ]</h3>
+            <div class="skills-log-grid">
+                <div class="skill-item">System.Technical_Writing</div>
+                <div class="skill-item">System.Medical_Imaging</div>
+                <div class="skill-item">System.Patient_Clarity</div>
+                <div class="skill-item">System.Data_Synthesis</div>
+                <div class="skill-item">System.SOP_Creation</div>
+                <div class="skill-item">System.Critical_Analysis</div>
+            </div>
+        </section>
+
+        <section id="contact" class="code-block contact-block">
+            <h3 class="block-title">Transmit { channel: 'open' }</h3>
+            <p>Ready to establish connection for opportunities where precision matters.</p>
+            <p>
+                <span class="prop">email</span> = <span class="string">'cbrock2@ycp.edu'</span>; 
+                <a href="mailto:cbrock2@ycp.edu" class="code-link">execute_command(send_email) &rarr;</a>
+            </p>
+            <p>
+                <span class="prop">indeed</span> = <span class="string">'CaidenceBrock'</span>;
+                <a href="..." target="_blank" class="code-link">execute_command(view_profile) &rarr;</a>
+            </p>
+        </section>
+        
+    </main>
     
     <footer>
         <div class="container">
-            <p>-- END OF SCAN -- &copy; 2025 Caidence Brock. All rights reserved.</p>
+            <p class="copyright">// Caidence Brock @ 2025. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
-        // Smooth scrolling for navigation links
+        // Smooth scrolling script
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
