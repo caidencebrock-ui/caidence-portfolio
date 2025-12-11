@@ -2,24 +2,18 @@
    1. VARIABLES & RESET
    ======================== */
 :root {
-    /* The Diagnostic Palette (High Contrast) */
-    --color-background: #0d0d0d; /* Deep charcoal/near-black */
-    --color-text-primary: #ffffff;
-    --color-text-secondary: #aaaaaa;
+    /* Code Theme Palette */
+    --color-background: #ffffff;
+    --color-foreground: #222222;
+    --color-muted: #888888;
 
-    /* The Accent: Medical Hotspot Pink */
-    --color-accent-pink: #d81b60; /* The key diagnostic highlight */
-    --color-light-accent: #1e060e; /* Subtle background highlight */
+    /* The Accent: Pink Syntax Highlight */
+    --color-highlight: #d81b60; 
+    --color-highlight-light: #f5f5f5;
 
     /* Typography */
-    --font-heading: 'IBM Plex Sans', sans-serif;
-    --font-body: 'IBM Plex Sans', sans-serif;
-    --font-mono: 'IBM Plex Mono', monospace;
-    
-    /* Layout */
-    --padding-section: 100px 0;
-    --border-radius: 4px;
-    --shadow-glow: 0 0 10px rgba(216, 27, 96, 0.3);
+    --font-code: 'Source Code Pro', monospace;
+    --padding-block: 40px;
 }
 
 * {
@@ -30,346 +24,266 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 70px;
+    scroll-padding-top: 50px;
 }
 
 body {
-    font-family: var(--font-body);
-    line-height: 1.7;
-    color: var(--color-text-primary);
+    font-family: var(--font-code);
+    line-height: 1.6;
+    color: var(--color-foreground);
     background-color: var(--color-background);
-    font-size: 1.05rem;
+    font-size: 1rem;
 }
 
 .container {
-    max-width: 1100px;
+    max-width: 1000px;
     margin: 0 auto;
-    padding: 0 25px;
-}
-
-/* Typography Defaults */
-h1, h2, h3, h4 {
-    font-family: var(--font-heading);
-    font-weight: 700;
-    color: var(--color-text-primary);
-    line-height: 1.2;
+    padding: 0 20px;
 }
 
 a {
     text-decoration: none;
-    color: var(--color-accent-pink);
-    transition: all 0.3s ease;
+    color: var(--color-highlight);
+    transition: color 0.2s;
 }
 
 a:hover {
-    color: var(--color-text-primary);
+    color: var(--color-foreground);
 }
 
-
 /* ========================
-   2. NAVIGATION
+   2. NAVIGATION (The Command Line)
    ======================== */
-.scan-nav {
-    background-color: rgba(13, 13, 13, 0.95);
-    padding: 20px 0;
+.command-nav {
+    background-color: var(--color-highlight);
+    color: var(--color-background);
+    padding: 10px 0;
     position: sticky;
     top: 0;
     z-index: 1000;
-    border-bottom: 1px solid var(--color-light-accent);
 }
 
-.scan-nav .container {
+.command-nav .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.logo {
-    font-size: 1.4rem;
+.prompt {
     font-weight: 600;
-    color: var(--color-text-primary);
-    font-family: var(--font-mono);
+    padding: 5px 10px;
+    background-color: var(--color-foreground);
+    color: var(--color-highlight);
+    border-radius: 2px;
 }
 
-.logo .dot {
-    color: var(--color-accent-pink);
-    font-size: 1.8rem;
-}
-
-.scan-nav ul {
+.nav-links {
     list-style: none;
     display: flex;
-    gap: 30px;
+    gap: 20px;
 }
 
-.scan-nav ul li a {
-    color: var(--color-text-secondary);
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    padding-bottom: 5px;
-    border-bottom: 2px solid transparent;
-}
-
-.scan-nav ul li a:hover {
-    color: var(--color-accent-pink);
-    border-bottom: 2px solid var(--color-accent-pink);
-}
-
-
-/* ========================
-   3. HERO SECTION
-   ======================== */
-.hero-section {
-    padding: 120px 0;
-    text-align: center;
-    background-color: var(--color-background);
-}
-
-.hero-section h1 {
-    font-size: 4rem;
-    margin-bottom: 5px;
-    color: var(--color-accent-pink);
-    letter-spacing: -1px;
-}
-
-.hero-section h2 {
-    font-size: 1.8rem;
-    font-weight: 300;
-    color: var(--color-text-primary);
-    margin-bottom: 30px;
-}
-
-.scanline-divider {
-    height: 1px;
-    width: 100px;
-    background: var(--color-text-primary);
-    margin: 0 auto 30px;
-    box-shadow: var(--shadow-glow); /* Glowing line for the "scan" effect */
-}
-
-.tagline {
-    max-width: 800px;
-    margin: 0 auto 50px;
-    color: var(--color-text-secondary);
-    font-size: 1.1rem;
-}
-
-
-/* ========================
-   4. BUTTONS & CTA
-   ======================== */
-.cta-button {
-    display: inline-block;
-    padding: 14px 35px;
-    border-radius: var(--border-radius);
+.nav-links a {
+    color: var(--color-background);
+    font-size: 0.9rem;
     font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
 }
 
-.primary-cta {
-    background-color: var(--color-accent-pink);
-    color: var(--color-background);
-    box-shadow: var(--shadow-glow);
-    border: 2px solid var(--color-accent-pink);
+.nav-links a:hover {
+    color: var(--color-foreground);
+    text-decoration: underline;
 }
-
-.primary-cta:hover {
-    background-color: var(--color-text-primary);
-    color: var(--color-accent-pink);
-    transform: translateY(-2px);
-}
-
-.secondary-cta {
-    background-color: transparent;
-    color: var(--color-accent-pink);
-    border: 2px solid var(--color-accent-pink);
-}
-
-.secondary-cta:hover {
-    background-color: var(--color-accent-pink);
-    color: var(--color-background);
-    box-shadow: var(--shadow-glow);
-}
-
 
 /* ========================
-   5. CONTENT SECTIONS
+   3. HERO SECTION (The Output)
    ======================== */
-.content-section {
-    padding: var(--padding-section);
-    border-top: 1px solid var(--color-light-accent);
+.code-output-header {
+    padding: 80px 0 60px;
+    background-color: var(--color-highlight-light);
+    border-bottom: 2px solid var(--color-foreground);
 }
 
-.section-title {
-    font-family: var(--font-mono);
-    font-size: 1.2rem;
-    color: var(--color-accent-pink);
-    text-align: center;
-    margin-bottom: 60px;
-    letter-spacing: 2px;
-    position: relative;
-    text-transform: uppercase;
-}
-/* The highlight for the section title */
-.section-title::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 2px;
-    background: var(--color-text-primary);
-    margin: 15px auto 0;
-    box-shadow: 0 0 5px var(--color-text-primary);
+.code-output-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: var(--color-foreground);
+    font-weight: 700;
 }
 
+.sub-output {
+    color: var(--color-muted);
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
 
-/* --- Projects Grid --- */
-.project-grid {
+.cursor {
+    display: inline-block;
+    width: 8px;
+    height: 1.1rem;
+    background-color: var(--color-foreground);
+    margin-left: 5px;
+}
+
+.blink {
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    from, to { visibility: visible; }
+    50% { visibility: hidden; }
+}
+
+.code-link {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 5px 10px;
+    border: 1px solid var(--color-highlight);
+    color: var(--color-highlight);
+}
+
+.code-link:hover {
+    background-color: var(--color-highlight);
+    color: var(--color-background);
+}
+
+/* ========================
+   4. CONTENT BLOCKS
+   ======================== */
+.content-wrapper {
+    padding: 40px 20px;
+}
+
+.code-block {
+    background-color: var(--color-white);
+    padding: var(--padding-block);
+    border: 1px solid var(--color-highlight-light);
+    margin-bottom: 40px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.block-title {
+    font-size: 1.3rem;
+    border-bottom: 2px solid var(--color-highlight);
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+    color: var(--color-highlight);
+}
+
+.code-line {
+    margin-bottom: 20px;
+}
+
+.prop { color: var(--color-highlight); } /* Highlight for property names */
+.keyword { color: var(--color-foreground); font-weight: 700; } /* Highlight for keywords */
+.string { color: var(--color-muted); } /* Muted color for string values */
+
+.description {
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+/* Projects/Data Records */
+.project-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
 }
 
-.data-module {
-    background-color: var(--color-light-accent);
-    padding: 30px;
-    border-radius: var(--border-radius);
-    border: 1px solid var(--color-light-accent);
-    transition: all 0.3s ease;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-    display: flex;
-    flex-direction: column;
+.data-record {
+    border-left: 3px solid var(--color-foreground);
+    padding-left: 20px;
+    padding-top: 10px;
+    transition: border-color 0.2s;
 }
 
-/* Hover: The module gets a pink highlight/focus */
-.data-module:hover {
-    border-color: var(--color-accent-pink);
-    box-shadow: 0 0 15px rgba(216, 27, 96, 0.4);
-    transform: translateY(-5px);
+.data-record:hover {
+    border-left-color: var(--color-highlight);
+    background-color: var(--color-highlight-light);
 }
 
-.module-tag {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    color: var(--color-text-secondary);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 10px;
+.tag {
+    font-size: 0.8rem;
     display: block;
+    margin-bottom: 10px;
+    color: var(--color-muted);
 }
 
-.data-module h4 {
-    font-size: 1.5rem;
+.success {
+    color: var(--color-highlight); /* Successful status or file */
+}
+
+.data-record h4 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.data-record p {
+    font-size: 0.95rem;
+    color: var(--color-muted);
     margin-bottom: 15px;
 }
 
-.data-module p {
-    color: var(--color-text-secondary);
-    font-size: 1rem;
-    margin-bottom: 20px;
-    flex-grow: 1; /* Pushes link to bottom */
-}
-
-.tech-log {
-    margin-bottom: 25px;
-}
-
-.tech-log span {
+.tech-tags span {
     display: inline-block;
-    font-family: var(--font-mono);
     font-size: 0.75rem;
-    padding: 4px 10px;
-    border: 1px solid var(--color-accent-pink);
-    color: var(--color-accent-pink);
-    border-radius: 2px;
+    padding: 3px 6px;
+    background-color: var(--color-highlight-light);
+    color: var(--color-foreground);
+    border: 1px solid var(--color-muted);
     margin-right: 5px;
 }
 
-.module-link {
-    color: var(--color-text-primary);
-    font-weight: 600;
+/* Skills Log */
+.skills-log-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
 }
 
-.module-link:hover {
-    color: var(--color-accent-pink);
-}
-
-/* --- Skills Section --- */
-.skills-section {
-    text-align: center;
-}
-
-.skills-wrapper {
-    display: flex;
-    justify-content: center;
-    gap: 50px;
-    margin-top: 20px;
-}
-
-.skill-group p {
-    color: var(--color-accent-pink);
-    font-size: 1.1rem;
-    margin-bottom: 15px;
-    text-transform: uppercase;
-}
-
-.skill-tag {
-    display: block;
-    font-family: var(--font-mono);
+.skill-item {
     font-size: 0.95rem;
-    color: var(--color-text-primary);
-    background-color: var(--color-light-accent);
-    padding: 10px 20px;
-    margin-bottom: 8px;
-    border-left: 3px solid var(--color-accent-pink);
-    text-align: left;
+    padding: 10px;
+    border: 1px dashed var(--color-muted);
+    color: var(--color-foreground);
 }
 
-/* --- Contact Section --- */
-.contact-section {
+.skill-item:nth-child(even) {
+    color: var(--color-highlight);
+    border-color: var(--color-highlight);
+}
+
+/* Contact Block */
+.contact-block p {
+    margin-bottom: 15px;
+    font-size: 1rem;
+}
+
+/* Footer */
+footer {
+    padding: 20px 0;
     text-align: center;
+    border-top: 1px solid var(--color-highlight-light);
 }
 
-.contact-pitch {
-    font-size: 1.2rem;
-    margin-bottom: 40px;
-    color: var(--color-text-primary);
-}
-
-.small-link {
-    margin-top: 25px;
-    font-size: 0.9rem;
-    color: var(--color-text-secondary);
+.copyright {
+    color: var(--color-muted);
+    font-size: 0.85rem;
 }
 
 /* ========================
-   6. FOOTER & RESPONSIVE
+   5. RESPONSIVE
    ======================== */
-footer {
-    padding: 40px 0;
-    text-align: center;
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-    color: var(--color-text-secondary);
-    border-top: 1px solid var(--color-light-accent);
-}
-
 @media (max-width: 768px) {
-    .hero-section h1 { font-size: 3rem; }
-    .hero-section h2 { font-size: 1.4rem; }
-    
-    .skills-wrapper {
-        flex-direction: column;
-        gap: 30px;
+    .code-output-header h1 {
+        font-size: 2rem;
     }
     
-    .scan-nav .container {
+    .command-nav .container {
         flex-direction: column;
-        gap: 15px;
+        gap: 10px;
     }
-    
-    .scan-nav ul {
-        gap: 15px;
+
+    .nav-links {
+        justify-content: center;
     }
 }
