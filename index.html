@@ -21,11 +21,11 @@
     </nav>
 
     <header id="hero" class="hero-section">
-        <div class="container hero-content">
-            <h1 class="fade-in">Caidence Brock</h1>
-            <h2 class="fade-in delay-1">Medical Imaging Student</h2>
-            <p class="tagline fade-in delay-2">I am a dedicated Medical Imaging student who is organized, detail-oriented, and good at explaining complex information. I use my strong communication skills to make sure important medical and technical topics are easy for everyone to understand.</p>
-            <a href="#projects" class="cta-button fade-in delay-3">See My Work</a>
+        <div class="container">
+            <h1>Caidence Brock</h1>
+            <h2>Medical Imaging Student</h2>
+            <p class="tagline">I am a dedicated Medical Imaging student who is organized, detail-oriented, and good at explaining complex information. I use my strong communication skills to make sure important medical and technical topics are easy for everyone to understand.</p>
+            <a href="#projects" class="cta-button">See My Work</a>
         </div>
     </header>
 
@@ -49,8 +49,7 @@
         <div class="container">
             <h3>Class Projects</h3>
             <p class="section-subtext">A few examples of my writing and research work.</p>
-
-            <div class="project-carousel">
+            <div class="project-grid">
 
                 <div class="project-card">
                     <h4>FDA Website Report</h4>
@@ -80,16 +79,6 @@
                         <span>Instruction</span><span>Organization</span><span>Safety Focus</span>
                     </div>
                     <a href="https://drive.google.com/file/d/1ul_YiNacQxs8X2vby7iBsQiN36mfx6gn/view?usp=sharing" target="_blank" class="project-link primary-link">View Guide (PDF) &rarr;</a>
-                </div>
-
-                <div class="project-card coming-soon">
-                    <h4>New Project</h4>
-                    <p class="role-tag">In Progress</p>
-                    <p>This project is coming soon. Stay tuned for updates!</p>
-                    <div class="tech-stack">
-                        <span>Research</span><span>Writing</span><span>Design</span>
-                    </div>
-                    <span class="project-link primary-link">Coming Soon &rarr;</span>
                 </div>
 
             </div>
@@ -125,35 +114,6 @@
             });
         });
     </script>
-    <script>
-const slider = document.querySelector('.project-carousel');
-let isDown = false;
-let startX;
-let scrollLeft;
-
-slider.addEventListener('mousedown', (e) => {
-  isDown = true;
-  slider.classList.add('active');
-  startX = e.pageX - slider.offsetLeft;
-  scrollLeft = slider.scrollLeft;
-});
-slider.addEventListener('mouseleave', () => {
-  isDown = false;
-  slider.classList.remove('active');
-});
-slider.addEventListener('mouseup', () => {
-  isDown = false;
-  slider.classList.remove('active');
-});
-slider.addEventListener('mousemove', (e) => {
-  if(!isDown) return;
-  e.preventDefault();
-  const x = e.pageX - slider.offsetLeft;
-  const walk = (x - startX) * 2; //scroll-fast
-  slider.scrollLeft = scrollLeft - walk;
-});
-</script>
-
 </body>
 </html>
 
