@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Caidence Brock • Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
-    <!-- NAV -->
-    <nav class="glass-nav">
-        <div class="nav-left">Caidence Brock</div>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">Caidence<span>Brock</span></div>
         <ul class="nav-links">
             <li><a href="#about">About</a></li>
             <li><a href="#projects">Projects</a></li>
@@ -21,61 +22,53 @@
     <!-- HERO -->
     <section class="hero">
         <div class="hero-content">
-            <h1 class="hero-title">Design. Create. Communicate.</h1>
-            <p class="hero-sub">A polished collection of my Technical Communication work.</p>
-            <a href="#projects" class="hero-btn">See My Projects</a>
+            <h1>Hey, I'm <span class="pink">Caidence</span>.</h1>
+            <p>Tech communicator. Designer. Student.  
+            Here's where all my hard work lives.</p>
+            <button class="hero-btn" onclick="scrollToSection('projects')">See My Work</button>
         </div>
     </section>
 
     <!-- ABOUT -->
-    <section id="about" class="section about">
-        <h2 class="section-title">About Me</h2>
-        <p class="about-text">
-            I’m Caidence Brock — a York College student exploring the world of design, communication,
-            and tech. This portfolio showcases selected work demonstrating problem-solving, visual design,
-            analysis, and communication skills I’ve developed this semester.
+    <section id="about" class="about">
+        <h2>About Me</h2>
+        <p>
+            I’m a tech-savvy creator studying at York College of Pennsylvania.  
+            I love communication, design, and building things that feel clean, bold, and alive.  
+            This portfolio holds the best work I’ve done for my tech communication course.
         </p>
     </section>
 
     <!-- PROJECTS -->
-    <section id="projects" class="section projects">
-        <h2 class="section-title">Projects</h2>
-
+    <section id="projects" class="projects">
+        <h2>My Projects</h2>
         <div class="project-grid">
 
-            <div class="project-card glass-card">
-                <h3>🌸 Research Project</h3>
-                <p>Analyzing real-world communication structures and creating polished technical documents.</p>
-                <a class="project-link">View More</a>
+            <div class="project-card">
+                <h3>Project One</h3>
+                <p>Short description of this project. Clean, simple, and well-written.</p>
             </div>
 
-            <div class="project-card glass-card">
-                <h3>✏️ Rhetorical Review</h3>
-                <p>Breaking down argumentation techniques and evaluating persuasive strategies.</p>
-                <a class="project-link">View More</a>
+            <div class="project-card">
+                <h3>Project Two</h3>
+                <p>Something meaningful, impactful, or well-designed from your class.</p>
             </div>
 
-            <div class="project-card glass-card">
-                <h3>📁 Technical Packet</h3>
-                <p>A formatted, professional collection of documents demonstrating multi-modal communication.</p>
-                <a class="project-link">View More</a>
-            </div>
-
-            <div class="project-card glass-card">
-                <h3>🎨 Visual Redesign</h3>
-                <p>Improving clarity, accessibility, and aesthetics of a document through layout revisions.</p>
-                <a class="project-link">View More</a>
+            <div class="project-card">
+                <h3>Project Three</h3>
+                <p>Any project you want to showcase. Replace text as needed.</p>
             </div>
 
         </div>
     </section>
 
     <!-- CONTACT -->
-    <section id="contact" class="section contact">
-        <h2 class="section-title">Contact</h2>
-        <p class="contact-text">Have questions or want to talk about my work? Feel free to reach out.</p>
-        <p class="contact-email">caidencebrock@example.com</p>
+    <section id="contact" class="contact">
+        <h2>Contact</h2>
+        <p>Want to reach out? Email me at:</p>
+        <a href="mailto:your.email@example.com" class="email">your.email@example.com</a>
     </section>
 
+    <script src="script.js"></script>
 </body>
 </html>
