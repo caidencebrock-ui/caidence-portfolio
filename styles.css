@@ -2,20 +2,24 @@
    1. VARIABLES & RESET
    ======================== */
 :root {
-    /* Monochromatic Base */
-    --color-black: #222222;
-    --color-white: #ffffff;
-    --color-light-gray: #f5f5f5;
-    --color-medium-gray: #888888;
+    /* The Diagnostic Palette (High Contrast) */
+    --color-background: #0d0d0d; /* Deep charcoal/near-black */
+    --color-text-primary: #ffffff;
+    --color-text-secondary: #aaaaaa;
 
-    /* The Professional Pink Accent (A sharp, authoritative rose) */
-    --color-accent-pink: #D81B60; 
-    --color-accent-light: #fbe6ec;
+    /* The Accent: Medical Hotspot Pink */
+    --color-accent-pink: #d81b60; /* The key diagnostic highlight */
+    --color-light-accent: #1e060e; /* Subtle background highlight */
 
-    /* Layout & Shadows */
-    --sidebar-width: 300px;
-    --shadow-subtle: 0 4px 15px rgba(0, 0, 0, 0.05);
-    --border-radius: 6px;
+    /* Typography */
+    --font-heading: 'IBM Plex Sans', sans-serif;
+    --font-body: 'IBM Plex Sans', sans-serif;
+    --font-mono: 'IBM Plex Mono', monospace;
+    
+    /* Layout */
+    --padding-section: 100px 0;
+    --border-radius: 4px;
+    --shadow-glow: 0 0 10px rgba(216, 27, 96, 0.3);
 }
 
 * {
@@ -26,319 +30,346 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 70px;
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
-    line-height: 1.6;
-    color: var(--color-black);
-    background-color: var(--color-light-gray);
+    font-family: var(--font-body);
+    line-height: 1.7;
+    color: var(--color-text-primary);
+    background-color: var(--color-background);
+    font-size: 1.05rem;
 }
 
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 25px;
+}
+
+/* Typography Defaults */
 h1, h2, h3, h4 {
-    font-family: 'Lato', sans-serif;
+    font-family: var(--font-heading);
     font-weight: 700;
+    color: var(--color-text-primary);
     line-height: 1.2;
 }
 
 a {
     text-decoration: none;
     color: var(--color-accent-pink);
-    transition: color 0.3s;
+    transition: all 0.3s ease;
 }
 
 a:hover {
-    color: var(--color-black);
+    color: var(--color-text-primary);
 }
 
-/* ========================
-   2. LAYOUT: Sidebar + Main Content
-   ======================== */
 
-.sidebar {
-    position: fixed;
-    left: 0;
+/* ========================
+   2. NAVIGATION
+   ======================== */
+.scan-nav {
+    background-color: rgba(13, 13, 13, 0.95);
+    padding: 20px 0;
+    position: sticky;
     top: 0;
-    width: var(--sidebar-width);
-    height: 100vh;
-    background-color: var(--color-white);
-    padding: 40px 30px;
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+    z-index: 1000;
+    border-bottom: 1px solid var(--color-light-accent);
+}
+
+.scan-nav .container {
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    text-align: center;
-    overflow-y: auto;
-    z-index: 100;
 }
 
-.content-area {
-    margin-left: var(--sidebar-width);
-    padding: 40px 60px;
-    min-height: 100vh;
-    background-color: var(--color-light-gray);
+.logo {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    font-family: var(--font-mono);
 }
 
-/* ========================
-   3. SIDEBAR STYLES
-   ======================== */
-.profile-image {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 20px;
-    border: 3px solid var(--color-accent-pink); /* Subtle, professional accent ring */
-    box-shadow: var(--shadow-subtle);
-}
-
-.name-title {
-    font-size: 1.8rem;
-    margin-bottom: 5px;
-    color: var(--color-black);
-}
-
-.job-title {
-    font-size: 1rem;
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--color-medium-gray);
-    margin-bottom: 40px;
-}
-
-.main-nav ul {
-    list-style: none;
-    text-align: left;
-    width: 100%;
-    padding: 0;
-}
-
-.main-nav li {
-    margin: 15px 0;
-}
-
-.main-nav a {
-    color: var(--color-black);
-    font-weight: 700;
-    padding: 8px 10px;
-    display: block;
-    transition: all 0.2s;
-    border-left: 4px solid transparent;
-}
-
-.main-nav a:hover,
-.main-nav a:focus {
+.logo .dot {
     color: var(--color-accent-pink);
-    border-left: 4px solid var(--color-accent-pink);
-    background-color: var(--color-accent-light);
+    font-size: 1.8rem;
 }
 
-/* CTA Button in Footer */
-.cta-button {
-    display: block;
-    width: 100%;
-    background-color: var(--color-black);
-    color: var(--color-white);
-    padding: 12px 20px;
-    border-radius: var(--border-radius);
-    font-weight: 700;
-    text-align: center;
-    text-transform: uppercase;
-    transition: background-color 0.3s, transform 0.2s;
-}
-
-.cta-button:hover {
-    background-color: var(--color-accent-pink);
-    color: var(--color-white);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* ========================
-   4. CONTENT SECTIONS
-   ======================== */
-
-.section {
-    background-color: var(--color-white);
-    padding: 40px;
-    margin-bottom: 40px;
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow-subtle);
-    border-top: 4px solid var(--color-accent-pink); /* Signature top line */
-}
-
-.section-title {
-    font-size: 1.5rem;
-    color: var(--color-black);
-    margin-bottom: 10px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.divider {
-    height: 3px;
-    width: 50px;
-    background-color: var(--color-accent-pink);
-    margin-bottom: 25px;
-}
-
-.lead-text {
-    font-size: 1.15rem;
-    margin-bottom: 20px;
-    font-weight: 300;
-}
-
-.section p {
-    margin-bottom: 15px;
-}
-
-/* Projects Grid */
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+.scan-nav ul {
+    list-style: none;
+    display: flex;
     gap: 30px;
 }
 
-.project-card {
-    padding: 30px;
-    border: 1px solid var(--color-light-gray);
+.scan-nav ul li a {
+    color: var(--color-text-secondary);
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid transparent;
+}
+
+.scan-nav ul li a:hover {
+    color: var(--color-accent-pink);
+    border-bottom: 2px solid var(--color-accent-pink);
+}
+
+
+/* ========================
+   3. HERO SECTION
+   ======================== */
+.hero-section {
+    padding: 120px 0;
+    text-align: center;
+    background-color: var(--color-background);
+}
+
+.hero-section h1 {
+    font-size: 4rem;
+    margin-bottom: 5px;
+    color: var(--color-accent-pink);
+    letter-spacing: -1px;
+}
+
+.hero-section h2 {
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: var(--color-text-primary);
+    margin-bottom: 30px;
+}
+
+.scanline-divider {
+    height: 1px;
+    width: 100px;
+    background: var(--color-text-primary);
+    margin: 0 auto 30px;
+    box-shadow: var(--shadow-glow); /* Glowing line for the "scan" effect */
+}
+
+.tagline {
+    max-width: 800px;
+    margin: 0 auto 50px;
+    color: var(--color-text-secondary);
+    font-size: 1.1rem;
+}
+
+
+/* ========================
+   4. BUTTONS & CTA
+   ======================== */
+.cta-button {
+    display: inline-block;
+    padding: 14px 35px;
     border-radius: var(--border-radius);
-    transition: box-shadow 0.3s, border-color 0.3s;
-    background-color: var(--color-white);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.primary-cta {
+    background-color: var(--color-accent-pink);
+    color: var(--color-background);
+    box-shadow: var(--shadow-glow);
+    border: 2px solid var(--color-accent-pink);
+}
+
+.primary-cta:hover {
+    background-color: var(--color-text-primary);
+    color: var(--color-accent-pink);
+    transform: translateY(-2px);
+}
+
+.secondary-cta {
+    background-color: transparent;
+    color: var(--color-accent-pink);
+    border: 2px solid var(--color-accent-pink);
+}
+
+.secondary-cta:hover {
+    background-color: var(--color-accent-pink);
+    color: var(--color-background);
+    box-shadow: var(--shadow-glow);
+}
+
+
+/* ========================
+   5. CONTENT SECTIONS
+   ======================== */
+.content-section {
+    padding: var(--padding-section);
+    border-top: 1px solid var(--color-light-accent);
+}
+
+.section-title {
+    font-family: var(--font-mono);
+    font-size: 1.2rem;
+    color: var(--color-accent-pink);
+    text-align: center;
+    margin-bottom: 60px;
+    letter-spacing: 2px;
+    position: relative;
+    text-transform: uppercase;
+}
+/* The highlight for the section title */
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 2px;
+    background: var(--color-text-primary);
+    margin: 15px auto 0;
+    box-shadow: 0 0 5px var(--color-text-primary);
+}
+
+
+/* --- Projects Grid --- */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.data-module {
+    background-color: var(--color-light-accent);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-light-accent);
+    transition: all 0.3s ease;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: column;
 }
 
-.project-card:hover {
+/* Hover: The module gets a pink highlight/focus */
+.data-module:hover {
     border-color: var(--color-accent-pink);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 15px rgba(216, 27, 96, 0.4);
+    transform: translateY(-5px);
 }
 
-.card-tag {
-    display: inline-block;
+.module-tag {
+    font-family: var(--font-mono);
     font-size: 0.75rem;
-    font-weight: 700;
+    color: var(--color-text-secondary);
     text-transform: uppercase;
-    color: var(--color-accent-pink);
     letter-spacing: 1px;
     margin-bottom: 10px;
+    display: block;
 }
 
-.project-card h4 {
-    font-size: 1.3rem;
-    color: var(--color-black);
+.data-module h4 {
+    font-size: 1.5rem;
     margin-bottom: 15px;
 }
 
-.project-card p {
-    font-size: 0.95rem;
-    color: var(--color-medium-gray);
+.data-module p {
+    color: var(--color-text-secondary);
+    font-size: 1rem;
     margin-bottom: 20px;
     flex-grow: 1; /* Pushes link to bottom */
 }
 
-.tech-list {
-    margin-bottom: 20px;
+.tech-log {
+    margin-bottom: 25px;
 }
 
-.tech-list span {
+.tech-log span {
     display: inline-block;
-    background-color: var(--color-accent-light);
-    color: var(--color-black);
-    font-size: 0.8rem;
-    padding: 5px 10px;
-    border-radius: 3px;
-    margin-right: 8px;
-    margin-bottom: 8px;
-    font-weight: 400;
-}
-
-.project-link {
-    color: var(--color-black);
-    font-weight: 700;
-}
-
-.project-link:hover {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    padding: 4px 10px;
+    border: 1px solid var(--color-accent-pink);
     color: var(--color-accent-pink);
-    text-decoration: underline;
+    border-radius: 2px;
+    margin-right: 5px;
 }
 
-/* Contact Section */
-.contact-details {
-    margin-top: 20px;
+.module-link {
+    color: var(--color-text-primary);
+    font-weight: 600;
 }
 
-.contact-details p {
-    font-size: 1rem;
-    margin-bottom: 10px;
+.module-link:hover {
+    color: var(--color-accent-pink);
 }
 
-/* Footer */
-footer {
-    padding: 20px 0;
+/* --- Skills Section --- */
+.skills-section {
     text-align: center;
-    font-size: 0.85rem;
-    color: var(--color-medium-gray);
+}
+
+.skills-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
     margin-top: 20px;
-    border-top: 1px solid #ddd;
+}
+
+.skill-group p {
+    color: var(--color-accent-pink);
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.skill-tag {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    color: var(--color-text-primary);
+    background-color: var(--color-light-accent);
+    padding: 10px 20px;
+    margin-bottom: 8px;
+    border-left: 3px solid var(--color-accent-pink);
+    text-align: left;
+}
+
+/* --- Contact Section --- */
+.contact-section {
+    text-align: center;
+}
+
+.contact-pitch {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    color: var(--color-text-primary);
+}
+
+.small-link {
+    margin-top: 25px;
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
 }
 
 /* ========================
-   5. RESPONSIVE (Mobile)
+   6. FOOTER & RESPONSIVE
    ======================== */
-@media (max-width: 992px) {
-    .sidebar {
-        position: relative; /* Stacks at the top on mobile */
-        width: 100%;
-        height: auto;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
+footer {
+    padding: 40px 0;
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+    border-top: 1px solid var(--color-light-accent);
+}
 
-    .content-area {
-        margin-left: 0;
-        padding: 30px 20px;
-    }
+@media (max-width: 768px) {
+    .hero-section h1 { font-size: 3rem; }
+    .hero-section h2 { font-size: 1.4rem; }
     
-    .profile-header {
-        display: flex;
+    .skills-wrapper {
         flex-direction: column;
-        align-items: center;
+        gap: 30px;
     }
     
-    .main-nav ul {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
-        margin-top: 20px;
-    }
-
-    .main-nav li {
-        margin: 0;
-    }
-
-    .main-nav a {
-        padding: 5px 10px;
-        border-left: none;
-        border-bottom: 2px solid transparent;
-        font-weight: 400;
+    .scan-nav .container {
+        flex-direction: column;
+        gap: 15px;
     }
     
-    .main-nav a:hover,
-    .main-nav a:focus {
-        border-left: none;
-        border-bottom: 2px solid var(--color-accent-pink);
-        background-color: transparent;
-    }
-    
-    .contact-footer {
-        width: 100%;
-        margin-top: 20px;
-    }
-    
-    .project-grid {
-        grid-template-columns: 1fr;
+    .scan-nav ul {
+        gap: 15px;
     }
 }
