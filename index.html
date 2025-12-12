@@ -1,74 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Caidence Brock • Portfolio</title>
-    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caidence Brock | Medical Imaging Student</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
-    <!-- NAVBAR -->
-    <nav class="navbar">
-        <div class="logo">Caidence<span>Brock</span></div>
-        <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+    <nav>
+        <div class="container">
+            <a href="#hero" class="logo">Caidence Brock</a>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
-    <!-- HERO -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Hey, I'm <span class="pink">Caidence</span>.</h1>
-            <p>Tech communicator. Designer. Student.  
-            Here's where all my hard work lives.</p>
-            <button class="hero-btn" onclick="scrollToSection('projects')">See My Work</button>
-        </div>
-    </section>
+    <header id="hero" class="hero-section">
+        <div class="container">
+            <h1>Caidence Brock</h1>
+            <h2>Medical Imaging Student</h2>
+            <p class="tagline">I am a dedicated Medical Imaging student who is organized, detail-oriented, and good at explaining complex information. I use my strong communication skills to make sure important medical and technical topics are easy for everyone to understand.</p>
+            <a href="#projects" class="cta-button">See My Work</a>
+        </div>
+    </header>
 
-    <!-- ABOUT -->
-    <section id="about" class="about">
-        <h2>About Me</h2>
-        <p>
-            I’m a tech-savvy creator studying at York College of Pennsylvania.  
-            I love communication, design, and building things that feel clean, bold, and alive.  
-            This portfolio holds the best work I’ve done for my tech communication course.
-        </p>
-    </section>
+    <section id="about" class="about-section">
+        <div class="container">
+            <h3>About Me</h3>
+            <div class="about-content">
+                <p>I am currently studying to become a professional in the Medical Imaging field. In healthcare, accuracy and clarity are everything. Whether I am analyzing data or writing a report, I focus on getting the details right.</p>
+                <p>Although these projects were created for a Technical Communication class, they demonstrate skills that I bring to my future career: the ability to research thoroughly, solve problems, and communicate clearly with patients and colleagues.</p>
+            </div>
+            <div class="key-skills">
+                <span>Medical Imaging Student</span>
+                <span>Research</span>
+                <span>Clear Communication</span>
+                <span>Detail-Oriented</span>
+            </div>
+        </div>
+    </section>
 
-    <!-- PROJECTS -->
-    <section id="projects" class="projects">
-        <h2>My Projects</h2>
-        <div class="project-grid">
+    <section id="projects" class="projects-section">
+        <div class="container">
+            <h3>Class Projects</h3>
+            <p class="section-subtext">A few examples of my writing and research work.</p>
+            <div class="project-grid">
 
-            <div class="project-card">
-                <h3>Project One</h3>
-                <p>Short description of this project. Clean, simple, and well-written.</p>
-            </div>
+                <div class="project-card">
+                    <h4>FDA Website Report</h4>
+                    <p class="role-tag">Usability Analysis</p>
+                    <p>I tested the FDA website to see if it was easy for regular people to use. I found a few confusing areas and suggested simple fixes to help users find important health information faster.</p>
+                    <div class="tech-stack">
+                        <span>Research</span><span>Problem Solving</span><span>Report Writing</span>
+                    </div>
+                    <a href="https://drive.google.com/file/d/13cZyH3rYjwrn-sXPNK_0jK5kQUY13PQY/view?usp=sharing" target="_blank" class="project-link primary-link">View Report (PDF) &rarr;</a>
+                </div>
 
-            <div class="project-card">
-                <h3>Project Two</h3>
-                <p>Something meaningful, impactful, or well-designed from your class.</p>
-            </div>
+                <div class="project-card">
+                    <h4>Weight Loss Drugs Paper</h4>
+                    <p class="role-tag">Research Paper</p>
+                    <p>I researched popular weight loss drugs like Ozempic. This paper explains how they actually work, why they became so trendy on social media, and the real impact this has on patients.</p>
+                    <div class="tech-stack">
+                        <span>Research</span><span>Writing</span><span>Healthcare Topics</span>
+                    </div>
+                    <a href="https://drive.google.com/file/d/1PdBIypr72ZLdNZ68M-9MHY9mV-fpnZWy/view?usp=sharing" target="_blank" class="project-link primary-link">View Paper (PDF) &rarr;</a>
+                </div>
 
-            <div class="project-card">
-                <h3>Project Three</h3>
-                <p>Any project you want to showcase. Replace text as needed.</p>
-            </div>
+                <div class="project-card">
+                    <h4>Softball Practice Guide</h4>
+                    <p class="role-tag">Instructions & Planning</p>
+                    <p>I created a step-by-step guide for high school softball coaches. I rewrote existing instructions to make them clearer, safer, and easier to follow during a busy practice.</p>
+                    <div class="tech-stack">
+                        <span>Instruction</span><span>Organization</span><span>Safety Focus</span>
+                    </div>
+                    <a href="https://drive.google.com/file/d/1ul_YiNacQxs8X2vby7iBsQiN36mfx6gn/view?usp=sharing" target="_blank" class="project-link primary-link">View Guide (PDF) &rarr;</a>
+                </div>
+                
+                                <div class="project-card">
+                    <h4>PCA Job Resume</h4>
+                    <p class="role-tag">Professional Application Document</p>
+[cite_start]                    <p>A professional resume created for a Personal Care Assistant role to gain hands-on patient experience[cite: 1]. [cite_start]It highlights skills like strong communication, patient care, medical terminology, and details education in Diagnostic Medical Sonography[cite: 1].</p>
+                    <div class="tech-stack">
+                        <span>Patient Care</span><span>Professional Writing</span><span>Organization</span><span>Medical Terminology</span>
+                    </div>
+                    <a href="https://docs.google.com/document/d/1Ky7VNNO5UWtxPEcv8DFkDYJcC24r4n4BGBodB2TpgNc/edit?usp=sharing" target="_blank" class="project-link primary-link">View Resume (Doc) &rarr;</a>
+                </div>
 
-        </div>
-    </section>
+                                <div class="project-card">
+                    <h4>PCA Cover Letter</h4>
+                    <p class="role-tag">Targeted Communication</p>
+[cite_start]                    <p>A cover letter expressing interest in a Personal Care Assistant role with ProStat Workforce[cite: 2]. [cite_start]It emphasizes patience, dependability, safety, and a desire to strengthen patient interaction skills as a future cardiac sonographer[cite: 2].</p>
+                    <div class="tech-stack">
+                        <span>Targeted Writing</span><span>Compassionate Care</span><span>Patient Interaction</span><span>Professional Tone</span>
+                    </div>
+                    <a href="https://docs.google.com/document/d/154Uds6LI4tNsVTmu_aVEPxPwowlZujEBbRlMTlS0-S4/edit?usp=sharing" target="_blank" class="project-link primary-link">View Cover Letter (Doc) &rarr;</a>
+                </div>
 
-    <!-- CONTACT -->
-    <section id="contact" class="contact">
-        <h2>Contact</h2>
-        <p>Want to reach out? Email me at:</p>
-        <a href="mailto:your.email@example.com" class="email">your.email@example.com</a>
-    </section>
+            </div>
+        </div>
+    </section>
 
-    <script src="script.js"></script>
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h3>Contact Me</h3>
+            <p class="contact-pitch">I am always open to new opportunities to learn and grow in the healthcare field.</p>
+            <div class="contact-details">
+                <p><strong>Email:</strong> <a href="mailto:cbrock2@ycp.edu">cbrock2@ycp.edu</a></p>
+                <p><strong>Indeed Profile:</strong> <a href="https://profile.indeed.com/p/caidenceb-0r67lsk" target="_blank">Indeed.com/CaidenceBrock</a></p>
+            </div>
+            <a href="mailto:cbrock2@ycp.edu" class="cta-button primary-btn">Send an Email</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Caidence Brock. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
