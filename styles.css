@@ -1,145 +1,328 @@
-/* RESET */
+/* Color Variables */
+:root {
+    --color-white: #ffffff;
+    --color-off-white: #fefefe;
+    --color-light-pink: #ffebee; /* Lighter, warmer background */
+    --color-baby-pink: #f48fb1; /* Primary Accent (Soft Pink) */
+    --color-dark-pink: #ad1457; /* Deep, professional pink for contrast (Maroon/Berry) */
+    --color-text: #212121; /* Dark text for high contrast */
+    --color-light-text: #505050; /* Slightly darker light text for better readability */
+}
+
+/* Global Styles */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    background: linear-gradient(135deg, #ffb5d9, #ff6fb7, #ff4fa4);
-    background-size: 400% 400%;
-    animation: backgroundMove 15s ease infinite;
-    color: white;
+    font-family: 'Montserrat', sans-serif; /* Clean, modern body font */
+    line-height: 1.6;
+    color: var(--color-text);
+    background-color: var(--color-white);
+    scroll-behavior: smooth;
 }
 
-/* NAV */
-.navbar {
-    width: 100%;
-    height: 80px;
-    padding: 0 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    backdrop-filter: blur(12px);
-    background: rgba(255, 150, 200, 0.15);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    z-index: 50;
+.container {
+    max-width: 1100px; /* Slightly tighter container for better focus */
+    margin: 0 auto;
+    padding: 0 25px;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Lora', serif; /* Elegant, readable heading font */
+    font-weight: 700;
+}
+
+/* --- NAVIGATION --- */
+nav {
+    background-color: var(--color-white);
+    padding: 15px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Lighter, more subtle shadow */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .logo {
-    font-size: 1.8rem;
-    font-weight: 700;
-}
-.logo span {
-    color: #ffe0f0;
-}
-
-.nav-links {
-    display: flex;
-    gap: 30px;
-}
-.nav-links a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: 500;
-}
-.nav-links a:hover {
-    color: #ffe5f6;
+    font-size: 1.5rem; /* Slightly smaller logo */
+    font-weight: 700;
+    color: var(--color-dark-pink);
+    text-decoration: none;
+    letter-spacing: 0.5px;
 }
 
-/* HERO */
-.hero {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    padding-left: 8%;
+nav ul {
+    list-style: none;
+    display: flex;
 }
 
-.hero-content h1 {
-    font-size: 4rem;
-    font-weight: 700;
-    margin-bottom: 10px;
-}
-.pink {
-    color: #ffd1ea;
-}
-
-.hero-content p {
-    font-size: 1.3rem;
-    max-width: 500px;
-    margin-bottom: 30px;
+nav ul li a {
+    color: var(--color-text);
+    text-decoration: none;
+    padding: 10px 15px; /* Slightly tighter spacing */
+    font-weight: 500; /* Medium weight for better definition */
+    transition: color 0.3s, border-bottom 0.3s;
 }
 
-.hero-btn {
-    background: #ff8ccf;
-    border: none;
-    padding: 14px 30px;
-    border-radius: 30px;
-    color: white;
-    cursor: pointer;
-    font-size: 1.1rem;
-    transition: all 0.3s ease;
-}
-.hero-btn:hover {
-    background: #ffb1e3;
-    transform: scale(1.05);
+nav ul li a:hover {
+    color: var(--color-dark-pink);
+    border-bottom: 2px solid var(--color-baby-pink);
 }
 
-/* SECTION TITLES */
-section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
+/* --- HERO SECTION --- */
+.hero-section {
+    background: linear-gradient(135deg, var(--color-off-white) 0%, var(--color-light-pink) 100%);
+    color: var(--color-text);
+    padding: 120px 0; /* More vertical padding for impact */
+    text-align: center;
 }
 
-/* ABOUT */
-.about {
-    padding: 120px 10%;
-    text-align: center;
+.hero-section h1 {
+    font-size: 3.5rem; /* Slightly reduced size for polish */
+    margin-bottom: 8px;
+    color: var(--color-dark-pink);
+    letter-spacing: 1px;
 }
 
-/* PROJECTS */
-.projects {
-    padding: 120px 10%;
-    text-align: center;
+.hero-section h2 {
+    font-size: 1.8rem; /* Adjusted h2 size */
+    font-weight: 400;
+    margin-bottom: 30px;
+    color: var(--color-text);
+}
+
+.hero-section .tagline {
+    max-width: 750px; /* Tighter width for better reading flow (prose) */
+    margin: 0 auto 40px;
+    font-size: 1.1rem;
+    color: var(--color-light-text);
+    line-height: 1.7; /* Slightly looser line-height for readability */
+}
+
+/* CTA Button Styling */
+.cta-button {
+    display: inline-block;
+    background-color: var(--color-baby-pink);
+    color: var(--color-white);
+    padding: 12px 35px; /* Slightly less padded CTA */
+    text-decoration: none;
+    border-radius: 4px; /* Sharper corners */
+    font-weight: 600; /* Reduced weight */
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cta-button:hover {
+    background-color: var(--color-dark-pink);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* --- GENERAL SECTION STYLING --- */
+section {
+    padding: 90px 0; /* Increased vertical spacing between sections */
+    text-align: center;
+}
+
+section h3 {
+    font-size: 2.2rem; /* Slightly smaller h3 for polish */
+    margin-bottom: 15px;
+    color: var(--color-dark-pink);
+    text-transform: capitalize;
+    letter-spacing: 0.5px;
+}
+
+.section-subtext {
+    font-size: 1rem;
+    color: var(--color-light-text);
+    margin-bottom: 50px;
+}
+
+/* --- ABOUT SECTION --- */
+.about-section {
+    background-color: var(--color-white);
+    border-top: 1px solid #f0f0f0;
+}
+
+.about-content {
+    max-width: 750px; /* Tighter width for readability */
+    margin: 0 auto;
+    text-align: left;
+    font-size: 1.05rem;
+    line-height: 1.7; /* Improved readability */
+}
+
+.about-content p {
+    margin-bottom: 25px;
+}
+
+.key-skills {
+    margin-top: 40px;
+}
+
+.key-skills span {
+    display: inline-block;
+    background-color: var(--color-light-pink);
+    color: var(--color-dark-pink);
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 7px 14px;
+    border-radius: 4px; /* Sharper corners for professionalism */
+    margin: 4px;
+    border: none; /* Removing border, relying on background */
+}
+
+/* --- PROJECTS SECTION --- */
+.projects-section {
+    background-color: var(--color-light-pink);
 }
 
 .project-grid {
-    margin-top: 40px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
 }
 
 .project-card {
-    background: rgba(255, 255, 255, 0.18);
-    padding: 25px;
-    border-radius: 18px;
-    backdrop-filter: blur(14px);
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    transition: all 0.3s ease;
+    background-color: var(--color-white);
+    padding: 30px;
+    border-radius: 6px; /* Slightly less rounded */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); /* Lighter box shadow */
+    text-align: left;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    border-top: 4px solid var(--color-baby-pink); /* Slightly thinner anchor */
 }
 
 .project-card:hover {
-    transform: translateY(-7px) scale(1.03);
-    border-color: #ffffffa8;
+    transform: translateY(-5px); /* Less dramatic lift on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
-/* CONTACT */
-.contact {
-    padding: 120px 10%;
-    text-align: center;
+.project-card h4 {
+    font-size: 1.5rem; /* Slightly smaller H4 */
+    color: var(--color-text);
+    margin-bottom: 5px;
 }
 
-.email {
-    color: #fff;
-    font-size: 1.2rem;
+.project-card .role-tag {
+    color: var(--color-baby-pink);
+    font-style: normal; /* Removing italics for a cleaner look */
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+    display: block;
+    font-weight: 500;
 }
 
-@keyframes backgroundMove {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+.project-card p {
+    margin-bottom: 20px; /* Reduced margin */
+    color: var(--color-light-text);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.tech-stack {
+    margin-bottom: 25px;
+    min-height: 35px; /* Ensures vertical alignment */
+}
+
+.tech-stack span {
+    display: inline-block;
+    background-color: #fce4ec; /* Very light pink background for tags */
+    color: var(--color-dark-pink);
+    font-size: 0.75rem; /* Smaller tags */
+    padding: 3px 8px;
+    border-radius: 3px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.project-link {
+    color: var(--color-dark-pink);
+    text-decoration: none;
+    font-weight: 700;
+    display: inline-block;
+    transition: color 0.3s;
+    border-bottom: 2px solid transparent; /* Prepare for a subtle underline on hover */
+}
+
+.project-link:hover {
+    color: var(--color-baby-pink);
+    border-bottom: 2px solid var(--color-baby-pink);
+}
+
+/* --- CONTACT SECTION --- */
+.contact-section {
+    background-color: var(--color-white);
+}
+
+.contact-pitch {
+    max-width: 700px;
+    margin: 0 auto 30px;
+    font-size: 1.1rem;
+    color: var(--color-light-text);
+}
+
+.contact-details {
+    margin-bottom: 30px;
+}
+
+.contact-details p {
+    font-size: 1.1rem; /* Slightly smaller text */
+    margin: 10px 0;
+}
+
+.contact-details a {
+    color: var(--color-dark-pink); /* Using dark pink for links in contact section */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.contact-details a:hover {
+    color: var(--color-baby-pink);
+    text-decoration: underline;
+}
+
+/* --- FOOTER --- */
+footer {
+    background-color: var(--color-dark-pink);
+    color: var(--color-off-white); /* Lighter text for contrast */
+    padding: 25px 0;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* --- RESPONSIVE ADJUSTMENTS (Mobile) --- */
+@media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 2.8rem;
+    }
+    .hero-section h2 {
+        font-size: 1.4rem;
+    }
+    section {
+        padding: 60px 0;
+    }
+    nav .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    nav ul {
+        margin-top: 10px;
+        justify-content: center;
+    }
+    nav ul li a {
+        padding: 8px 10px;
+        font-size: 0.9rem;
+    }
 }
